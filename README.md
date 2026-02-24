@@ -31,12 +31,24 @@ You should see "active (running)".
 As we discussed before, open ports 80 (HTTP) and 443 (HTTPS). If you haven't set up UFW yet:
 ```
 sudo ufw allow ssh  # Don't lock yourself out!
-sudo ufw allow http
-sudo ufw allow https
+sudo ufw allow http # opens port 80
+sudo ufw allow https # opens port 443
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw enable
 sudo ufw status
+```
+- Option 2: Quick Commands to Open the Website Ports
+```
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+```
+You should see something like this in the output:
+```
+80/tcp                     ALLOW IN    Anywhere
+443/tcp                    ALLOW IN    Anywhere
+80/tcp (v6)                ALLOW IN    Anywhere (v6)
+443/tcp (v6)               ALLOW IN    Anywhere (v6)
 ```
 
 4. Set Up Your Website Files
